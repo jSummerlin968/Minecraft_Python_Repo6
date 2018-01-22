@@ -25,12 +25,11 @@ while count <= len(blocks):
     mc.setBlock(x, y + 7, z, blocks[7])
     mc.setBlock(x, y + 8, z, blocks[8])
     mc.setBlock(x, y + 9, z, blocks[9])
-         
+    
+    del blocks[9]
+    blocks.insert(0, barBlock)
+    
 
     count += 1
-
-    del blocks[9]
-
-    blocks.insert(barBlock, 0)
 
     time.sleep(2)
