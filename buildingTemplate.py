@@ -6,6 +6,32 @@ x = pos.x
 y = pos.y
 z = pos.z
 
+def tower(x, y, z, tower):
+    mainblock = int(input("Please input what block you want. Please enter block ID, not block name. "))
+    
+    tower = [[[0, mainblock, 0, mainblock, 0, mainblock, 0], [mainblock, 0, 0, 0, 0, 0, mainblock], [0, 0, 0, 0, 0, 0, 0], [mainblock, 0, 0, 0, 0, 0, mainblock], [0, 0, 0, 0, 0, 0, 0], [mainblock, 0, 0, 0, 0, 0, mainblock], [0, mainblock, 0, mainblock, 0, mainblock, 0]],
+             [[0, mainblock, mainblock, mainblock, mainblock, mainblock, 0], [mainblock, mainblock, mainblock, mainblock, mainblock, mainblock, mainblock], [mainblock, mainblock, mainblock, mainblock, mainblock, mainblock, mainblock], [mainblock, mainblock, mainblock, mainblock, mainblock, mainblock, mainblock], [mainblock, mainblock, mainblock, 0, mainblock, mainblock, mainblock], [mainblock, mainblock, mainblock, mainblock, mainblock, mainblock, mainblock], [0, mainblock, mainblock, mainblock, mainblock, mainblock, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, mainblock, mainblock, mainblock, mainblock, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, mainblock, mainblock, mainblock, mainblock, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, 0, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]],
+             [[0, 0, 0, 0, 0, 0, 0], [0, 0, mainblock, 0, mainblock, 0, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, mainblock, 0, 0, 0, mainblock, 0], [0, 0, mainblock, mainblock, mainblock, 0, 0], [0, 0, 0, 0, 0, 0, 0]]]
+    startingX = x
+    startingY = y
+    startingZ = z
+    for depth in reversed(tower):
+        for height in depth:
+            for block in height:
+                mc. setBlock(x, y, z, block)
+                x += 1
+            z += 1
+            x = startingX
+        y += 1
+        z = startingZ
+             
 def igloo(x, y, z, build1):
     mainblock = int(input("Please input what block you want. Please enter the block id, not name. "))
     
@@ -52,12 +78,15 @@ def simplehouse(x, y, z, simplehouse):
             x = startingX
         y += 1
         z = startingZ
-choice = input("What build do you want? Choose from igloo or simplehouse (enter as written). ")
+choice = input("What build do you want? Choose from igloo, tower, or simplehouse (enter as written). ")
 if choice == "igloo":
     igloo(x, y, z, igloo)
     mc.postToChat("Thank you for using 'GENERIC BUILD TEMPLATE' (Doors and floors not included).")
 elif choice == "simplehouse":
     simplehouse(x, y, z, simplehouse)
     mc.postToChat("Thank you for using 'GENERIC BUILD TEMPLATE' (Doors and floors not included).")
+elif choice == "tower":
+    tower(x, y, z, tower)
+    mc.postToChat("Thank you for using 'GENERIC BUILD TEMPLATE' (Doors and floors not included). ")
 else:
     mc.postToChat("That is not a choice or you've entered the choice wrong. Please enter exactly as shown.")
