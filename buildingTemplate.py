@@ -1,3 +1,9 @@
+"""
+Program takes a block id from the user and replaces the list with those ids.
+Comes with three build templates.
+Coded by Joseph Summerlin
+"""
+
 from mcpi.minecraft import Minecraft
 mc = Minecraft.create()
 #imports minecraft and gets the user's coordinates.
